@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 import CreatePokemonForm from "./Components/CreatePokemonForm";
 import CreateUserForm from "./Components/CreateUserForm";
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <UserLogin />
-      <CreateUserForm />
+      
       <CreatePokemonForm />
     </>
   );
