@@ -11,15 +11,17 @@ export const getUser = (id) => {
     axios.get(USERS + id);
 }
 
-export const userLogin = (username, password) => {
-
-    fetch(`http://localhost:8080/users/findUser/${username}:${password}}`, {
-        method: 'GET',
-        headers: {"Content-Type": "application/JSON"},
-    })
-    .then(response => response.json())
-    .then(json => console.log(json))
+export const getUserLogin = (user, pass) => {
+    
+    axios.get(USERS + '/login', {
+        params: {
+            username: "test",
+            password: "test"
+        }
+    }).then(res => console.log(res))
 }
+
+
 
 export const getAllUsers = () => {
     axios.get(USERS)
