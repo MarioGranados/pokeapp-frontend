@@ -1,35 +1,28 @@
+import { USERS } from "./Config"
+import axios from 'axios'
+
+
 export const createUser = (user) => {
-    fetch('http://localhost:8080/users', {
-        method: 'POST',
-        headers: {"Content-Type": "application/JSON"},
-        body: JSON.stringify(user)
-    }).then(() => {
-        console.log("user added")
-    })
+    axios.post(USERS, user)
+    .then(res => console.log(res));
 }
 
 export const getUser = (id) => {
-    fetch('http://localhost:8080/users' + id, {
-        method: 'GET',
-        headers: {"Content-Type": "application/JSON"},
-        body: JSON.stringify()
-    }).then(() => {
-        console.log("user added")
-    })
+    axios.get(USERS + id);
 }
 
 export const userLogin = (username, password) => {
-    fetch('http://localhost:8080/users/findUser' + username + "+" + password)
+
+    fetch(`http://localhost:8080/users/findUser/${username}:${password}}`, {
+        method: 'GET',
+        headers: {"Content-Type": "application/JSON"},
+    })
     .then(response => response.json())
     .then(json => console.log(json))
 }
 
 export const getAllUsers = () => {
-    fetch('http://localhost:8080/users', {
-        method: "GET",
-        headers: {"Content-Type": "application/json"},
-    })
-    .then(response => response.json())
-    .then(json => console.log(json))
+    axios.get(USERS)
+    .then(res => console.log(res.data))
 
 }
