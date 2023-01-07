@@ -32,47 +32,77 @@ const CreateUserForm = () => {
 
   return (
     <>
-      <h2>Create User</h2>
-      <form action="POST">
-        <label htmlFor="username">username</label>
-        <input
-          type="text"
-          onChange={handleChange}
-          value={user.username}
-          name="username"
-        />
-        <label htmlFor="email">email</label>
-        <input
-          type="text"
-          onChange={handleChange}
-          value={user.email}
-          name="email"
-        />
-        <label htmlFor="dob">dob</label>
-        <input
-          type="text"
-          onChange={handleChange}
-          value={user.dob}
-          name="dob"
-        />
-        <label htmlFor="password">password</label>
-        <input
-          type="password"
-          onChange={handleChange}
-          value={user.password}
-          name="password"
-        />
-        <label htmlFor="confirm">confirm password</label>
-        <input
-          type="password"
-          onChange={(e) => {
-            setConfirmPassword(e.target.value);
-          }}
-        />
-        <button type="button" onClick={handleClick}>
-          create user
-        </button>
-      </form>
+      <div className="card">
+        <div className="card-body m-auto w-50">
+          <h2>Create User</h2>
+          <form action="POST">
+            <div class="mb-3">
+              <label htmlFor="username">username</label>
+              <input
+                className="form-control"
+                type="text"
+                onChange={handleChange}
+                value={user.username}
+                name="username"
+                placeholder="username"
+                id="username"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="email">email</label>
+              <input
+                className="form-control"
+                type="text"
+                onChange={handleChange}
+                value={user.email}
+                name="email"
+                placeholder="email"
+                id="email"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="dob">dob</label>
+              <input
+                className="form-control"
+                type="text"
+                onChange={handleChange}
+                value={user.dob}
+                name="dob"
+                placeholder="dob"
+                id="form-floating"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="password">password</label>
+              <input
+                className="form-control"
+                type="password"
+                onChange={handleChange}
+                value={user.password}
+                name="password"
+                placeholder="password"
+                id="password"
+              />
+            </div>
+            <div className="mb-3">
+            <label htmlFor="confirm">confirm password</label>
+              <input
+                className="form-control"
+                type="password"
+                placeholder="confirm"
+                id="confirm"
+                onChange={(e) => {
+                  setConfirmPassword(e.target.value);
+                }}
+              />{" "}
+            </div>
+
+            <button type="button" className="btn btn-primary" onClick={handleClick}>
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </div>
     </>
   );
 };
