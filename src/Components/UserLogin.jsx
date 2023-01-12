@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getAllUsers, userLogin } from "../Services/UserServices";
+import { getAllUsers, getUserLogin } from "../Services/UserServices";
 
 const UserLogin = () => {
 
@@ -9,7 +9,7 @@ const UserLogin = () => {
     const handleClick = (e) => {   
         console.log(username + " " + password);
         e.preventDefault();
-        userLogin(username, password)
+        getUserLogin(username, password)
     }
     return(
         <>

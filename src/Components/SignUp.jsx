@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createUser } from "../Services/UserServices";
 
-const CreateUserForm = () => {
+const SignUp = () => {
   const [user, setUser] = useState({
     username: "",
     email: "",
@@ -106,4 +106,4 @@ const CreateUserForm = () => {
     </>
   );
 };
-export default CreateUserForm;
+export default SignUp;

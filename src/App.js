@@ -1,22 +1,24 @@
-
 import "./App.css";
-import CreatePokemonForm from "./Components/CreatePokemonForm";
-import CreateUserForm from "./Components/CreateUserForm";
+import CreateUserForm from "./Components/SignUp";
+import Navbar from "./Components/Navbar";
+import UserLogin from "./Components/UserLogin";
 import PokemonGenerator from "./Components/PokemonGenerator";
 import { getUserLogin } from "./Services/UserServices";
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SignUp from "./Components/SignUp";
 function App() {
-
   return (
     <>
-      <CreateUserForm/>
-      <CreatePokemonForm />
-      <button onClick={(e) => {
-        e.preventDefault();
-        getUserLogin()
+      <Router>
+    
+        <Navbar />
+        <Routes>
+          <Route path="/login" element={<UserLogin />} />
+          <Route path='/' element={<Home/>}
 
-      }}>get all users</button>
-      <PokemonGenerator/>
+          <Route path="/SignUp" element={<SignUp />} />
+        </Routes>
+      </Router>
     </>
   );
 }

@@ -1,12 +1,10 @@
 import { POKEMON_API } from "../Services/Config";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { catchPokemon } from "../Services/PokemonServices";
 
 const PokemonGenerator = () => {
-  const [pokemon, setPokemon] = useState({
-    appInfo: "",
-  });
+  const [pokemon, setPokemon] = useState([]);
   const [pokeObj, setPokeObj] = useState({
     pokemon_name: "",
     pokemon_number: "",
@@ -14,13 +12,13 @@ const PokemonGenerator = () => {
     user_id: 1,
   });
 
-  const handleClick = async (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
     let randomNumber = (Math.random() * 100).toFixed();
-    const response = await axios
+    axios
       .get(POKEMON_API + randomNumber.toString())
       .then((res) => {
-        setPokemon({...pokemon, appInfo: res.data});
+        setPokemon([res.data])
       })
       .then(console.log(pokemon));
   };
@@ -39,7 +37,7 @@ const PokemonGenerator = () => {
   };
   return (
     <>
-      {pokemon.appInfo === "" ? (
+      {pokemon.length === 0 ? (
         <button className="btn btn-primary" onClick={handleClick}>
           Fetch
         </button>
