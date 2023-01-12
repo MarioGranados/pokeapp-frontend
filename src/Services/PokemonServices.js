@@ -1,9 +1,6 @@
-export const createUser = (pokemon) => {
-    fetch('http://localhost:8080/pokemon', {
-        method: 'POST',
-        headers: {"Content-Type": "application/JSON"},
-        body: JSON.stringify(user)
-    }).then(() => {
-        console.log("user added")
-    })
-}
+import axios from "axios";
+import {POKEMON_URL } from "./Config";
+export const catchPokemon = (pokemon) => {
+  axios.post(POKEMON_URL, pokemon)
+  .then((res) => console.log(res));
+};

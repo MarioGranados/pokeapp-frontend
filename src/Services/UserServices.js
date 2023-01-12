@@ -1,19 +1,19 @@
-import { USERS } from "./Config"
+import { USERS_URL } from "./Config"
 import axios from 'axios'
 
 
 export const createUser = (user) => {
-    axios.post(USERS, user)
+    axios.post(USERS_URL, user)
     .then(res => console.log(res));
 }
 
 export const getUser = (id) => {
-    axios.get(USERS + id);
+    axios.get(USERS_URL + id);
 }
 
 export const getUserLogin = (user, pass) => {
     
-    axios.get(USERS + '/login', {
+    axios.get(USERS_URL + '/login', {
         params: {
             username: "test",
             password: "test"
@@ -24,7 +24,7 @@ export const getUserLogin = (user, pass) => {
 
 
 export const getAllUsers = () => {
-    axios.get(USERS)
+    axios.get(USERS_URL)
     .then(res => console.log(res.data))
 
 }

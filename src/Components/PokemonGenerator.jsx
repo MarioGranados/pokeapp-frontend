@@ -1,33 +1,45 @@
 import { POKEMON_API } from "../Services/Config";
 import axios from "axios";
 import { useState } from "react";
+import { catchPokemon } from "../Services/PokemonServices";
 
 const PokemonGenerator = () => {
-  const [pokemon, setPokemon] = useState(null);
+  const [pokemon, setPokemon] = useState({
+    appInfo: "",
+  });
+  const [pokeObj, setPokeObj] = useState({
+    pokemon_name: "",
+    pokemon_number: "",
+    favorite: false,
+    user_id: 1,
+  });
 
-  const handleClick = (e) => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     let randomNumber = (Math.random() * 100).toFixed();
-    console.log(randomNumber);
-    e.preventDefault();
-    axios
+    const response = await axios
       .get(POKEMON_API + randomNumber.toString())
-      .then((res) => setPokemon({ appInfo: res.data }))
-      .then(console.log(pokemon))
-  };
-
-  const handleRun = (e) => {
-    e.preventDefault();
-    setPokemon(null);
-    handleClick(e);
+      .then((res) => {
+        setPokemon({...pokemon, appInfo: res.data});
+      })
+      .then(console.log(pokemon));
   };
 
   const handleCatch = (e) => {
     e.preventDefault();
     //add pokemon id to database
-  }
+    setPokeObj({
+      pokedex_number: pokemon.appInfo.id,
+      pokemon_name: pokemon.appInfo.name,
+      user_id: 1,
+      favorite: false,
+    });
+    console.log(pokeObj);
+    // catchPokemon(pokeObj);
+  };
   return (
     <>
-      {pokemon === null ? (
+      {pokemon.appInfo === "" ? (
         <button className="btn btn-primary" onClick={handleClick}>
           Fetch
         </button>
@@ -41,8 +53,12 @@ const PokemonGenerator = () => {
           <div class="card-body">
             <h5 class="card-title">{pokemon.appInfo.name}</h5>
             <p class="card-text">{pokemon.appInfo.description}</p>
-            <button className="btn btn-danger" onClick={handleRun}>Run</button>
-            <button className="btn btn-secondary" onClick={handleCatch}>Catch</button>
+            <button className="btn btn-danger" onClick={handleClick}>
+              Run
+            </button>
+            <button className="btn btn-secondary" onClick={handleCatch}>
+              Catch
+            </button>
           </div>
         </div>
       )}
