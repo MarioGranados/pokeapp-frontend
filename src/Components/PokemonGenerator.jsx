@@ -1,11 +1,11 @@
 import { POKEMON_API } from "../Services/Config";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { catchPokemon } from "../Services/PokemonServices";
+import { useState } from "react";
 
 const PokemonGenerator = () => {
-  const [pokemon, setPokemon] = useState([]);
-  const [pokeObj, setPokeObj] = useState({
+  const [data, setData] = useState([]);
+  const [pokemon, setPokemon] = useState({
     pokemon_name: "",
     pokemon_number: "",
     favorite: false,
@@ -18,39 +18,39 @@ const PokemonGenerator = () => {
     axios
       .get(POKEMON_API + randomNumber.toString())
       .then((res) => {
-        setPokemon([res.data])
+        setData([res.data])
       })
-      .then(console.log(pokemon));
+      .then(console.log(data));
   };
 
   const handleCatch = (e) => {
     e.preventDefault();
     //add pokemon id to database
-    setPokeObj({
-      pokedex_number: pokemon.appInfo.id,
-      pokemon_name: pokemon.appInfo.name,
+    setPokemon({
+      pokedex_number: data.appInfo.id,
+      pokemon_name: data.appInfo.name,
       user_id: 1,
       favorite: false,
     });
-    console.log(pokeObj);
+    console.log(pokemon);
     // catchPokemon(pokeObj);
   };
   return (
     <>
-      {pokemon.length === 0 ? (
+      {data.length === 0 ? (
         <button className="btn btn-primary" onClick={handleClick}>
           Fetch
         </button>
       ) : (
         <div class="card" style={{ width: "18rem" }}>
           <img
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.appInfo.id}.png`}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.appInfo.id}.png`}
             class="card-img-top"
-            alt={"sprite image of " + pokemon.appInfo.name}
+            alt={"sprite image of " + data.appInfo.name}
           />
           <div class="card-body">
-            <h5 class="card-title">{pokemon.appInfo.name}</h5>
-            <p class="card-text">{pokemon.appInfo.description}</p>
+            <h5 class="card-title">{data.appInfo.name}</h5>
+            <p class="card-text">{data.appInfo.description}</p>
             <button className="btn btn-danger" onClick={handleClick}>
               Run
             </button>

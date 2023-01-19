@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createUser } from "../Services/UserServices";
+import {Link} from 'react-router-dom'
 
 const SignUp = () => {
   const [user, setUser] = useState({
@@ -31,9 +32,9 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <div className="card">
-        <div className="card-body m-auto w-50">
+    <div className="container">
+      <div className="card m-auto w-50">
+        <div className="card-body">
           <h2>Create User</h2>
           <form action="POST">
             <div class="mb-3">
@@ -97,13 +98,15 @@ const SignUp = () => {
               />{" "}
             </div>
 
-            <button type="button" className="btn btn-primary" onClick={handleClick}>
+            <button type="button" className="btn btn-primary my-2" onClick={handleClick}>
               Sign Up
             </button>
+            <p className="text-lead">Already have an account? Log In <span><Link to='/login'>Here</Link></span></p>
+
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default SignUp;

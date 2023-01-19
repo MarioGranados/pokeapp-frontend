@@ -1,11 +1,13 @@
 import "./App.css";
-import CreateUserForm from "./Components/SignUp";
+import CreateUserForm from "./Pages/SignUp";
 import Navbar from "./Components/Navbar";
-import UserLogin from "./Components/UserLogin";
+import UserLogin from "./Pages/UserLogin";
 import PokemonGenerator from "./Components/PokemonGenerator";
 import { getUserLogin } from "./Services/UserServices";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import SignUp from "./Components/SignUp";
+import SignUp from "./Pages/SignUp";
+import Home from "./Pages/Home";
+import Footer from "./Components/Footer";
 function App() {
   return (
     <>
@@ -14,10 +16,11 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/login" element={<UserLogin />} />
-          <Route path='/' element={<Home/>}
+          <Route path='/' element={<Home/>}/>
 
           <Route path="/SignUp" element={<SignUp />} />
         </Routes>
+        <Footer/>
       </Router>
     </>
   );
