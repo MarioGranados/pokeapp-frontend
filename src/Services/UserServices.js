@@ -1,14 +1,14 @@
 import { USERS_URL } from "./Config"
 import axios from 'axios'
 
-
+//GET
 export const createUser = (user) => {
     axios.post(USERS_URL, user)
     .then(res => console.log(res));
 }
 
 export const getUser = (id) => {
-    axios.get(USERS_URL + id);
+    axios.get(USERS_URL + `/${id}`);
 }
 
 export const getUserLogin = (user, pass) => {
@@ -20,7 +20,6 @@ export const getUserLogin = (user, pass) => {
         }
     }).then(res => console.log(res))
 }
-
 
 
 export const getAllUsers = () => {

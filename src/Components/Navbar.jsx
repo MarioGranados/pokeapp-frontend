@@ -25,13 +25,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="nav-link px-2 text-white">
-                  Features
+                <Link to="/adventure" className="nav-link px-2 text-white">
+                  Catch Pokemons
                 </Link>
               </li>
               <li>
-                <Link to="/" className="nav-link px-2 text-white">
-                  Pricing
+                <Link to="/profile" className="nav-link px-2 text-white">
+                  Profile
                 </Link>
               </li>
             </ul>
