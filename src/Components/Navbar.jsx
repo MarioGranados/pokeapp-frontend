@@ -1,5 +1,15 @@
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { SEARCH_URL } from "../Services/Config";
+import { useState } from "react";
 const Navbar = () => {
+  const [search, setSearch] = useState();
+  const handleSubmit = async (pokemonName) => {
+    console.log(pokemonName);
+    await axios.get(SEARCH_URL + `${pokemonName}`).then((results) => {
+      console.log(results);
+    });
+  };
   return (
     <>
       <header className="p-3 text-bg-dark">
@@ -45,6 +55,17 @@ const Navbar = () => {
                 className="form-control form-control-dark text-bg-dark"
                 placeholder="Search..."
                 aria-label="Search"
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
+              />
+              <input
+                type="submit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSubmit(search);
+                }}
+                hidden
               />
             </form>
 

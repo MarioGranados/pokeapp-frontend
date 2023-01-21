@@ -2,6 +2,7 @@ import { POKEMON_API } from "../Services/Config";
 import axios from "axios";
 import { catchPokemon } from "../Services/PokemonServices";
 import { useEffect, useState } from "react";
+import Pokeball from "./Pokeball";
 
 const PokemonGenerator = () => {
   const [data, setData] = useState(null);
@@ -35,11 +36,14 @@ const PokemonGenerator = () => {
   return (
     <div className="container mt-5">
       {data === null ? (
-        <div className="justify-content-center d-flex">
-          <button className="btn btn-primary" onClick={handleClick}>
-            Catch!
-          </button>
+        <>
+        <p className="text-lead text-center">
+          Click On The Pokeball To Start
+        </p>
+        <div onClick={handleClick} className='d-flex justify-content-center'>
+          <Pokeball />
         </div>
+        </>
       ) : (
         <div className="justify-content-center d-flex">
           <div className="card" style={{ width: "22rem" }}>

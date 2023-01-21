@@ -12,7 +12,7 @@ import Profile from "./Pages/Profile";
 import Game from './Pages/Game'
 function App() {
   return (
-    <>
+    <div className="bg-light">
       <Router>
     
         <Navbar />
@@ -25,7 +25,7 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
-    </>
+    </div>
   );
 }
 

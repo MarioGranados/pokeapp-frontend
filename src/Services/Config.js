@@ -4,3 +4,7 @@ export const POKEMON_URL = URL + 'api/pokemon'
 
 
 export const POKEMON_API = "https://pokeapi.co/api/v2/pokemon-species/";
+
+export const SEARCH_URL = "https://pokeapi.co/api/v2/pokemon/"
+
+
