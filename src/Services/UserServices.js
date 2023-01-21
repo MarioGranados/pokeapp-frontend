@@ -18,7 +18,7 @@ export const getUserLogin = (user, pass) => {
             username: "test",
             password: "test"
         }
-    }).then(res => console.log(res))
+    }).then(res => {return res})
 }
 
 

@@ -5,11 +5,14 @@ import {Link} from 'react-router-dom'
 const UserLogin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState({});
 
   const handleClick = (e) => {
     console.log(username + " " + password);
     e.preventDefault();
-    getUserLogin(username, password);
+    setUser(getUserLogin(username, password));
+    localStorage.setItem('user', user);
+
   };
   return (
     <div className="container m-auto w-50 mt-5">

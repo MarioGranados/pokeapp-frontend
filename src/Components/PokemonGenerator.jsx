@@ -12,8 +12,12 @@ const PokemonGenerator = () => {
     favorite: false,
     user_id: 1,
   });
+  function createRandomNumber(max) {
+    return Math.floor(Math.random() * max);
+  }
+
   async function apiFetchRequest() {
-    let randomNumber = Math.floor(Math.random() * 100);
+    let randomNumber = createRandomNumber(100)
     const results = await axios.get(POKEMON_API + randomNumber.toString());
     const json = results.data;
     setData({ api: json });
