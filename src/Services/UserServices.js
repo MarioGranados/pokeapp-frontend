@@ -3,7 +3,7 @@ import axios from 'axios'
 
 //GET
 export const createUser = (user) => {
-    axios.post(USERS_URL, user)
+    axios.post('http://localhost:8080/sign-up', `${user}`)
     .then(res => console.log(res));
 }
 

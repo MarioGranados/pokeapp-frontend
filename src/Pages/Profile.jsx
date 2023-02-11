@@ -10,30 +10,30 @@ const Profile = () => {
         <div className="row my-5">
           <div className="d-flex justify-content-around">
             <div className="card" style={cardStyle}>
-              <img src="..." class="card-img-top" alt="..." />
+              <img src="..." className="card-img-top" alt="..." />
               <h5 className="text-center">Pokemon Name</h5>
               <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, veniam.</p>
             </div>
             <div className="card" style={cardStyle}>
-              <img src="..." class="card-img-top" alt="..." />
-              <h5 className="text-center">Pokemon Name</h5>
-              <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, veniam.</p>
-
-            </div>
-            <div className="card" style={cardStyle}>
-              <img src="..." class="card-img-top" alt="..." />
+              <img src="..." className="card-img-top" alt="..." />
               <h5 className="text-center">Pokemon Name</h5>
               <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, veniam.</p>
 
             </div>
             <div className="card" style={cardStyle}>
-              <img src="..." class="card-img-top" alt="..." />
+              <img src="..." className="card-img-top" alt="..." />
               <h5 className="text-center">Pokemon Name</h5>
               <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, veniam.</p>
 
             </div>
             <div className="card" style={cardStyle}>
-              <img src="..." class="card-img-top" alt="..." />
+              <img src="..." className="card-img-top" alt="..." />
+              <h5 className="text-center">Pokemon Name</h5>
+              <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, veniam.</p>
+
+            </div>
+            <div className="card" style={cardStyle}>
+              <img src="..." className="card-img-top" alt="..." />
               <h5 className="text-center">Pokemon Name</h5>
               <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, veniam.</p>
 

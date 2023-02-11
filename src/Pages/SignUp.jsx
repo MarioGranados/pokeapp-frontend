@@ -37,7 +37,7 @@ const SignUp = () => {
         <div className="card-body">
           <h2>Create User</h2>
           <form action="POST">
-            <div class="mb-3">
+            <div className="mb-3">
               <label htmlFor="username">username</label>
               <input
                 className="form-control"
